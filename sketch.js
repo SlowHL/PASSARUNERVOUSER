@@ -9,6 +9,7 @@ var peg1, peg2;
 var tronco1, tronco2, tronco3, tronco4;
 var passaru;
 var fundo;
+var plataforma;
 
 function preload(){
 fundo= loadImage("sprites/bg.png");
@@ -20,6 +21,7 @@ function setup(){
     world = engine.world;
 
     xao = new Xao(600,400,1200,20);
+    plataforma = new Xao(150,305,300,170);
     
     caxa1 = new Caxa(700,320,70,70);
     caxa2 = new Caxa(920,320,70,70);
@@ -54,4 +56,5 @@ function draw(){
     tronco3.display();
     tronco4.display();
     passaru.display();
+    plataforma.display();
 }
