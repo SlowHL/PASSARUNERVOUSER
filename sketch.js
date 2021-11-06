@@ -1,6 +1,7 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
+const Constraint = Matter.Constraint
 
 var engine, world;
 var caxa1, caxa2, caxa3, caxa4, caxa5;
@@ -10,6 +11,8 @@ var tronco1, tronco2, tronco3, tronco4;
 var passaru;
 var fundo;
 var plataforma;
+var corpoRestrito;
+var restricao;
 
 function preload(){
 fundo= loadImage("sprites/bg.png");
@@ -38,6 +41,10 @@ function setup(){
     tronco4 = new Tronco(870,120,150,-PI/7);
 
     passaru = new Passaru(100, 100);
+
+    corpoRestrito = new Tronco(230,180,80,PI/2); 
+
+    restricao = new Restricao(passaru.body, corpoRestrito.body )
 }
 
 function draw(){
@@ -57,4 +64,6 @@ function draw(){
     tronco4.display();
     passaru.display();
     plataforma.display();
+    corpoRestrito.display();
+    restricao.display();
 }
