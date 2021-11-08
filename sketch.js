@@ -11,8 +11,7 @@ var tronco1, tronco2, tronco3, tronco4;
 var passaru;
 var fundo;
 var plataforma;
-var corpoRestrito;
-var restricao;
+var estilingue;
 
 function preload(){
 fundo= loadImage("sprites/bg.png");
@@ -40,11 +39,9 @@ function setup(){
     tronco3 = new Tronco(760,120,150,PI/7);
     tronco4 = new Tronco(870,120,150,-PI/7);
 
-    passaru = new Passaru(100, 100);
+    passaru = new Passaru(200, 50);
 
-    corpoRestrito = new Tronco(230,180,80,PI/2); 
-
-    restricao = new Restricao(passaru.body, corpoRestrito.body )
+    estilingue = new Estilingue(passaru.body, {x:200,y:50} )
 }
 
 function draw(){
@@ -64,6 +61,12 @@ function draw(){
     tronco4.display();
     passaru.display();
     plataforma.display();
-    corpoRestrito.display();
-    restricao.display();
+    estilingue.display();
+}
+
+function mouseDragged(){
+Matter.Body.setPosition(passaru.body,{x:mouseX,y:mouseY})
+}
+function mouseReleased() {
+estilingue.fly()
 }
